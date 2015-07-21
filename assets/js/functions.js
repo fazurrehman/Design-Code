@@ -38,18 +38,16 @@ function mentoringBubbleClick() {
 $(window).scroll(function() {
   youtubeVidScroll();
   startMentoring();
+  startArticles();
 });
 
 
 function youtubeVidScroll() {
-
   var wScroll = $(window).scrollTop();
-
   $('.video-strip').css('background-position','center -'+ wScroll +'px');
 }
 
 function startMentoring() {
-
   var wScroll = $(window).scrollTop();
 
   if($('section.mentoring').offset().top - 500 < wScroll) {
@@ -64,8 +62,19 @@ function startMentoring() {
       mentoringNarrowStart();
     }
   }
-
 };
+
+function startArticles(){
+  var wScroll = $(window).scrollTop();
+  if($('section.articles').offset().top - 500 < wScroll && !$('.article-thumb').hasClass('is-visible')) {
+    for (var i = 0; i < $('.article-thumb').length; i++) {
+      setTimeout(function(){
+        $('.article-thumb').eq(i).addClass('is-visible');
+        console.log('hey');
+      }, 300 * i);
+    }
+  }
+}
 
 function mentoringNarrowStart() {
   $('.faces').css({
