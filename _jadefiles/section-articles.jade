@@ -2,7 +2,7 @@ section.articles
   .flex.flex--center
     
     .col-50.article-wrap
-      {% for post in site.posts %}
+      {% for post in site.posts limit: 12 %}
       a(href="{{post.url}}" style="background-image: url({{post.thumbnail}});").article-thumb
         .article-meta
           .article-title {{post.title}}

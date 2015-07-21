@@ -711,7 +711,7 @@ section.mentoring {
     padding: 0;
     position: relative;
     top: 800px;
-    transition: all 0.3s ease-in-out; }
+    transition: all 400ms ease-in-out; }
     section.mentoring .faces.launched {
       top: 0px; }
   section.mentoring .face {
@@ -792,6 +792,7 @@ section.articles {
     float: left;
     background-size: cover;
     overflow: hidden;
+    opacity: 0;
     transition: all 300ms ease-in-out; }
     section.articles .article-thumb.is-visible {
       opacity: 1; }

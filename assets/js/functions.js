@@ -50,7 +50,7 @@ function youtubeVidScroll() {
 function startMentoring() {
   var wScroll = $(window).scrollTop();
 
-  if($('section.mentoring').offset().top - 500 < wScroll) {
+  if($('section.mentoring').offset().top - $(window).height()/2 < wScroll) {
     if($(window).width() > 640) {
     $('.faces').addClass('launched');
       if(!$('.face').hasClass('has-bubble-open')){
@@ -66,13 +66,12 @@ function startMentoring() {
 
 function startArticles(){
   var wScroll = $(window).scrollTop();
-  if($('section.articles').offset().top - 500 < wScroll && !$('.article-thumb').hasClass('is-visible')) {
-    for (var i = 0; i < $('.article-thumb').length; i++) {
-      setTimeout(function(){
-        $('.article-thumb').eq(i).addClass('is-visible');
-        console.log('hey');
-      }, 300 * i);
-    }
+  if($('section.articles').offset().top - $(window).height()/2 < wScroll && !$('.article-thumb').eq(0).hasClass('is-visible')) {
+    $('.article-thumb').each(function(i){
+     setTimeout(function(){
+       $('.article-thumb').eq(i).addClass('is-visible');
+     }, i * 300);
+   });
   }
 }
 
